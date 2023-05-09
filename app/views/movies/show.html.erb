@@ -4,6 +4,7 @@
     <h1>
       Movie #<%= @the_movie.id %> details
     </h1>
+    <% if @current_user != nil%>
     <% current_user_bookmarks = Bookmark.where({:movie_id => @the_movie.id}).where({:user_id => session.fetch(:user_id)})%>
     <% the_bookmark = current_user_bookmarks.at(0)%>
     <% if current_user_bookmarks.count == 0 %>
@@ -13,6 +14,7 @@
     </form>
     <%else%>
       <a href="/delete_bookmark/<%= the_bookmark.id%>">Un-bookmark</a>
+    <%end%>
     <%end%>
 
     <div>
