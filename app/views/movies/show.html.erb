@@ -10,6 +10,7 @@
     <% if current_user_bookmarks.count == 0 %>
     <form action="/add_bookmark">
       <input type="hidden" name="the_movie_id" value="<%= @the_movie.id %>">
+      <input type="hidden" name="query_user_id" value="<%= @current_user.id %>">
       <button>Bookmark this movie!</button>
     </form>
     <%else%>
